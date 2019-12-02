@@ -28,11 +28,8 @@ def run_program(opcode, noun, verb):
 def brute_force_program(opcode, result):
     for i in range(100):
         for j in range(100):
-            try:
-                if run_program(opcode, i, j) == result:
-                    return 100 * i + j
-            except KeyError:
-                continue
+            if run_program(opcode, i, j) == result:
+                return 100 * i + j
     return -1
 
 
@@ -41,13 +38,9 @@ def efficient_brute_force(opcode, result):
     start = result - init
     i = start//300000
     for j in range(100):
-        try:
-            if run_program(opcode, i, j) == result:
-                return 100 * i + j
-        except KeyError:
-            continue
+        if run_program(opcode, i, j) == result:
+            return 100 * i + j
     return -1
-
 
 
 if __name__ == "__main__":
